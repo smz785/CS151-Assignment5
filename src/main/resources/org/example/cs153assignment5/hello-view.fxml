@@ -13,13 +13,13 @@
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
     </padding>
 
-    <MenuBar>
-        <Menu text="Menu">
-            <MenuItem text="About" onAction="#onAboutClick"/>
-            <MenuItem text="New Game" onAction="#onNewGameClick"/>
-            <MenuItem text="Exit" onAction="#onExitClick"/>
-        </Menu>
-    </MenuBar>
+    <Label text="✊✋✌"
+            style="-fx-font-size: 32px; -fx-font-weight: bold; -fx-text-fill: #36522a"/>
 
-    <Label fx:id="welcomeText"/>
+    <Label text="Rock Paper Scissors!"
+            style="-fx-font-size: 32px; -fx-font-weight: bold; -fx-text-fill: #36522a"/>
+
+    <Button text="Start" onAction="#onNewGameClick"/>
+    <Button text="About" onAction="#onAboutClick"/>
+    <Button text="Exit" onAction="#onExitClick"/>
 </VBox>
