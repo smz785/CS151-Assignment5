@@ -1,14 +1,31 @@
 package org.example.cs153assignment5;
 
+import java.io.IOException;
+
+import javafx.application.Platform;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
 
 public class HelloController {
     @FXML
-    private Label welcomeText;
+    private void onAboutClick() {
+        try {
+            HelloApplication.switchScene("about-view.fxml");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     @FXML
-    protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
+    private void onNewGameClick() {
+        try {
+            HelloApplication.switchScene("game-page.fxml");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void onExitClick() {
+        Platform.exit();
     }
 }
