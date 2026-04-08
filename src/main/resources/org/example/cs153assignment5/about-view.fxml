@@ -12,8 +12,7 @@
             <Insets top="32" right="24" bottom="24" left="24"/>
         </padding>
 
-        <Label text="About This Game"
-            style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #36522a"/>
+        <Label text="About This Game" styleClass="label-heading"/>
 
         <Label text="Our version of Rock, Paper, Scissors is a classic game against a machine learning opponent."
             wrapText="true"/>
@@ -22,7 +21,7 @@
             wrapText="true"/>
 
         <Label text="Developers: Asmita Dulla, Gianna Nicomedes, Mahika Kachhwaha, Zain Mohammed"
-            style="-fx-font-size: 14px; -fx-text-fill: #a8b79f;"/>
+            styleClass="label-link-text"/>
 
         <Button text="← Back" onAction="#onBackClick"/>
     </VBox>

@@ -14,26 +14,23 @@
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane prefHeight="440.0" prefWidth="600.0"
-            style="-fx-background-color: #f5f5f5; -fx-border-color: #e0e0e0; -fx-border-width: 1;"
+<BorderPane style="-fx-background-color: #f5f5f5; -fx-border-color: #e0e0e0; -fx-border-width: 1;"
             xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
 
    <!-- TOP: Algorithm bar -->
    <top>
       <HBox alignment="CENTER_LEFT" prefHeight="44.0" spacing="10"
-            style="-fx-background-color: white; -fx-border-color: transparent transparent #e0e0e0 transparent; -fx-border-width: 1;">
+            styleClass="hbox-algorithm-bar">
          <padding><Insets left="16" right="16"/></padding>
-         <Label text="Computer Algorithm:"
-                style="-fx-font-size: 11px; -fx-font-weight: bold; -fx-text-fill: #888; -fx-text-transform: uppercase;"/>
-         <Label fx:id="algorithmLabel" text="Random"
-                style="-fx-font-size: 11px; -fx-background-color: #e8f0fe; -fx-text-fill: #1a56db; -fx-padding: 3 8 3 8; -fx-background-radius: 4;"/>
+         <Label text="Computer Algorithm:" styleClass="label-algorithm-label"/>
+         <Label fx:id="algorithmLabel" text="Random" styleClass="badge-algorithm"/>
       </HBox>
    </top>
 
    <!-- BOTTOM: Round/game stats bar -->
    <bottom>
       <GridPane prefHeight="80.0" prefWidth="600.0"
-                style="-fx-background-color: white; -fx-border-color: #e0e0e0 transparent transparent transparent; -fx-border-width: 1;">
+               styleClass="panel-stats-header">
          <columnConstraints>
             <ColumnConstraints hgrow="ALWAYS" percentWidth="25"/>
             <ColumnConstraints hgrow="ALWAYS" percentWidth="25"/>
@@ -43,21 +40,21 @@
          <padding><Insets left="16" right="16"/></padding>
 
          <VBox alignment="CENTER_LEFT" spacing="3" GridPane.columnIndex="0">
-            <Label text="ROUND #" style="-fx-font-size: 10px; -fx-font-weight: bold; -fx-text-fill: #888;"/>
-            <Label fx:id="roundLabel" text="—" style="-fx-font-size: 14px; -fx-font-weight: bold;"/>
+            <Label text="ROUND #" styleClass="label-section-header"/>
+            <Label fx:id="roundLabel" text="—" styleClass="label-stat-value"/>
          </VBox>
          <Separator orientation="VERTICAL" GridPane.columnIndex="1" style="-fx-padding: 12 0 12 0;"/>
          <VBox alignment="CENTER_LEFT" spacing="3" GridPane.columnIndex="1" style="-fx-padding: 0 0 0 16;">
-            <Label text="ROUND WINNER" style="-fx-font-size: 10px; -fx-font-weight: bold; -fx-text-fill: #888;"/>
-            <Label fx:id="roundWinnerLabel" text="—" style="-fx-font-size: 14px; -fx-font-weight: bold;"/>
+            <Label text="ROUND WINNER" styleClass="label-section-header"/>
+            <Label fx:id="roundWinnerLabel" text="—" styleClass="label-stat-value"/>
          </VBox>
          <VBox alignment="CENTER_LEFT" spacing="3" GridPane.columnIndex="2" style="-fx-padding: 0 0 0 16;">
-            <Label text="TOTAL ROUNDS" style="-fx-font-size: 10px; -fx-font-weight: bold; -fx-text-fill: #888;"/>
-            <Label fx:id="totalRoundsLabel" text="—" style="-fx-font-size: 14px; -fx-font-weight: bold;"/>
+            <Label text="TOTAL ROUNDS" styleClass="label-section-header"/>
+            <Label fx:id="totalRoundsLabel" text="—" styleClass="label-stat-value"/>
          </VBox>
          <VBox alignment="CENTER_LEFT" spacing="3" GridPane.columnIndex="3" style="-fx-padding: 0 0 0 16;">
-            <Label text="GAME WINNER" style="-fx-font-size: 10px; -fx-font-weight: bold; -fx-text-fill: #888;"/>
-            <Label fx:id="gameWinnerLabel" text="—" style="-fx-font-size: 14px; -fx-font-weight: bold;"/>
+            <Label text="GAME WINNER" styleClass="label-section-header"/>
+            <Label fx:id="gameWinnerLabel" text="—" styleClass="label-stat-value"/>
          </VBox>
       </GridPane>
    </bottom>
@@ -65,24 +62,19 @@
    <!-- LEFT: Human player panel -->
    <left>
       <VBox prefWidth="140.0" spacing="8"
-            style="-fx-background-color: white; -fx-border-color: transparent #e0e0e0 transparent transparent; -fx-border-width: 1;">
+            styleClass="panel-player">
          <padding><Insets top="14" right="12" bottom="14" left="12"/></padding>
 
-         <Label text="Human Player"
-                style="-fx-font-size: 13px; -fx-font-weight: bold; -fx-border-color: transparent transparent #e0e0e0 transparent; -fx-border-width: 1; -fx-padding: 0 0 6 0;"/>
+         <Label text="Human Player" styleClass="label-subsection-header"/>
 
-         <Button mnemonicParsing="false" text="ROCK" maxWidth="Infinity"
-                 style="-fx-font-size: 12px; -fx-font-weight: bold; -fx-background-color: #f5f5f5; -fx-border-color: #d0d0d0; -fx-border-radius: 4; -fx-background-radius: 4; -fx-cursor: hand;"/>
-         <Button mnemonicParsing="false" text="PAPER" maxWidth="Infinity"
-                 style="-fx-font-size: 12px; -fx-font-weight: bold; -fx-background-color: #f5f5f5; -fx-border-color: #d0d0d0; -fx-border-radius: 4; -fx-background-radius: 4; -fx-cursor: hand;"/>
-         <Button mnemonicParsing="false" text="SCISSORS" maxWidth="Infinity"
-                 style="-fx-font-size: 12px; -fx-font-weight: bold; -fx-background-color: #f5f5f5; -fx-border-color: #d0d0d0; -fx-border-radius: 4; -fx-background-radius: 4; -fx-cursor: hand;"/>
-
+         <Button mnemonicParsing="false" text="ROCK" maxWidth="Infinity"/>
+         <Button mnemonicParsing="false" text="PAPER" maxWidth="Infinity"/>
+         <Button mnemonicParsing="false" text="SCISSORS" maxWidth="Infinity"/>
          <Region VBox.vgrow="ALWAYS"/>
 
-         <VBox spacing="2" style="-fx-border-color: #e0e0e0 transparent transparent transparent; -fx-border-width: 1; -fx-padding: 8 0 0 0;">
-            <Label text="YOU CHOSE" style="-fx-font-size: 10px; -fx-font-weight: bold; -fx-text-fill: #888;"/>
-            <Label fx:id="humanChoiceLabel" text="—" style="-fx-font-size: 13px; -fx-font-weight: bold;"/>
+         <VBox styleClass="vbox-stats-section">
+            <Label text="YOU CHOSE" styleClass="label-section-header"/>
+            <Label fx:id="humanChoiceLabel" text="—" styleClass="label-stat-value"/>
          </VBox>
       </VBox>
    </left>
@@ -90,25 +82,24 @@
    <!-- RIGHT: Computer player panel -->
    <right>
       <VBox prefWidth="180.0" spacing="12"
-            style="-fx-background-color: white; -fx-border-color: transparent transparent transparent #e0e0e0; -fx-border-width: 1;">
+            styleClass="panel-player-right">
          <padding><Insets top="14" right="12" bottom="14" left="12"/></padding>
 
-         <Label text="Computer Player"
-                style="-fx-font-size: 13px; -fx-font-weight: bold; -fx-border-color: transparent transparent #e0e0e0 transparent; -fx-border-width: 1; -fx-padding: 0 0 6 0;"/>
+         <Label text="Computer Player" styleClass="label-subsection-header"/>
 
-         <VBox spacing="2">
+         <VBox styleClass="vbox-stats-item">
             <Label text="PREDICTED HUMAN CHOICE"
-                   wrapText="true"
-                   style="-fx-font-size: 10px; -fx-font-weight: bold; -fx-text-fill: #888;"/>
+                  wrapText="true"
+                  styleClass="label-section-header"/>
             <Label fx:id="predictedChoiceLabel" text="—"
-                   style="-fx-font-size: 13px; -fx-font-weight: bold;"/>
+                  styleClass="label-stat-value"/>
          </VBox>
 
-         <VBox spacing="2">
+         <VBox styleClass="vbox-stats-item">
             <Label text="COMPUTER CHOSE"
-                   style="-fx-font-size: 10px; -fx-font-weight: bold; -fx-text-fill: #888;"/>
+                  styleClass="label-section-header"/>
             <Label fx:id="computerChoiceLabel" text="—"
-                   style="-fx-font-size: 13px; -fx-font-weight: bold;"/>
+                  styleClass="label-stat-value"/>
          </VBox>
       </VBox>
    </right>
@@ -118,11 +109,9 @@
       <VBox spacing="8" style="-fx-background-color: #f5f5f5;">
          <padding><Insets top="12" right="12" bottom="12" left="12"/></padding>
 
-         <Label text="Game Stats"
-                style="-fx-font-size: 13px; -fx-font-weight: bold; -fx-border-color: transparent transparent #e0e0e0 transparent; -fx-border-width: 1; -fx-padding: 0 0 6 0;"/>
+         <Label text="Game Stats" styleClass="label-subsection-header"/>
 
-         <TableView VBox.vgrow="ALWAYS"
-                    style="-fx-background-color: white; -fx-border-color: #e0e0e0; -fx-border-radius: 4; -fx-background-radius: 4;">
+         <TableView VBox.vgrow="ALWAYS" styleClass="table-view-stats">
             <columns>
                <TableColumn prefWidth="90.0" text="Human Wins"/>
                <TableColumn prefWidth="105.0" text="Computer Wins"/>
