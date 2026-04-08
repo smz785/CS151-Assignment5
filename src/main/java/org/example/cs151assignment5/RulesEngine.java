@@ -1,4 +1,4 @@
-package org.example.cs153assignment5;
+package org.example.cs151assignment5;
 
 /**
  * RulesEngine determines the winner of a Rock-Paper-Scissors round.

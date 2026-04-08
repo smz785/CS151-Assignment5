@@ -1,4 +1,4 @@
-module org.example.cs153assignment5 {
+module org.example.cs151assignment5 {
     requires javafx.controls;
     requires javafx.fxml;
 
@@ -8,6 +8,6 @@ module org.example.cs153assignment5 {
     requires org.kordamp.bootstrapfx.core;
     requires com.almasb.fxgl.all;
 
-    opens org.example.cs153assignment5 to javafx.fxml;
-    exports org.example.cs153assignment5;
+    opens org.example.cs151assignment5 to javafx.fxml;
+    exports org.example.cs151assignment5;
 }

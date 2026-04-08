@@ -1,6 +1,8 @@
-package org.example.cs153assignment5;
+package org.example.cs151assignment5;
 
-import java.util.HashMap;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
 import java.util.LinkedList;
 import java.util.Map;
 import java.util.Random;
@@ -8,6 +10,8 @@ import java.util.Random;
 public class MLAlgorithm implements ChoiceAlgorithm {
 
     private static final int N = 6;
+    private final StringProperty mlAlg = new SimpleStringProperty("ML");
+    private final StringProperty predictedHumanChoice = new SimpleStringProperty("N/A");
 
     // key = last N alternating tokens
     // value = counts of next human move [rock, paper, scissors]
@@ -16,6 +20,7 @@ public class MLAlgorithm implements ChoiceAlgorithm {
     private LinkedList<String> history;
     private Random random;
     private MLDataStore dataStore;
+
 
     public MLAlgorithm() {
         history = new LinkedList<>();
@@ -27,6 +32,7 @@ public class MLAlgorithm implements ChoiceAlgorithm {
     @Override
     public Choice makeChoice() {
         if (history.size() < N) {
+            predictedHumanChoice.set("N/A");
             return getRandomChoice();
         }
 
@@ -34,11 +40,13 @@ public class MLAlgorithm implements ChoiceAlgorithm {
         int[] counts = patternMap.get(key);
 
         if (counts == null) {
+            predictedHumanChoice.set("N/A");
             return getRandomChoice();
         }
 
         int predictedIndex = getMaxIndex(counts);
         Choice predictedHuman = indexToChoice(predictedIndex);
+        predictedHumanChoice.set(String.valueOf(predictedHuman));
 
         return getWinningMove(predictedHuman);
     }
@@ -105,5 +113,15 @@ public class MLAlgorithm implements ChoiceAlgorithm {
         if (humanMove == Choice.ROCK) return Choice.PAPER;
         if (humanMove == Choice.PAPER) return Choice.SCISSORS;
         return Choice.ROCK;
+    }
+
+    @Override
+    public StringProperty getAlgorithmChoiceProperty(){
+        return mlAlg;
+    }
+
+    @Override
+    public StringProperty getPredictedHumanChoiceProperty(){
+        return  predictedHumanChoice;
     }
 }

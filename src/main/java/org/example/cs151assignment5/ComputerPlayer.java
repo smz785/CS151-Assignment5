@@ -1,4 +1,4 @@
-package org.example.cs153assignment5;
+package org.example.cs151assignment5;
 
 public class ComputerPlayer implements Player {
 

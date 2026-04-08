@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.VBox?>
 
 <VBox spacing="0" xmlns:fx="http://javafx.com/fxml"
-    fx:controller="org.example.cs153assignment5.AboutController">
+    fx:controller="org.example.cs151assignment5.AboutController">
 
     <VBox spacing="12" alignment="TOP_LEFT">
         <padding>
