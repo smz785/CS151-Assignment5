@@ -112,11 +112,12 @@
 
          <Label text="Game Stats" styleClass="label-subsection-header"/>
 
-         <TableView VBox.vgrow="ALWAYS" styleClass="table-view-stats">
+         <TableView fx:id="roundsTable" VBox.vgrow="ALWAYS" styleClass="table-view-stats">
             <columns>
-               <TableColumn prefWidth="90.0" text="Human Wins"/>
-               <TableColumn prefWidth="105.0" text="Computer Wins"/>
-               <TableColumn prefWidth="75.0" text="Ties"/>
+               <TableColumn fx:id="roundColumn" prefWidth="70.0" text="Round"/>
+               <TableColumn fx:id="humanWinsColumn" prefWidth="100.0" text="Human Wins"/>
+               <TableColumn fx:id="computerWinsColumn" prefWidth="120.0" text="Computer Wins"/>
+               <TableColumn fx:id="tiesColumn" prefWidth="70.0" text="Ties"/>
             </columns>
          </TableView>
       </VBox>

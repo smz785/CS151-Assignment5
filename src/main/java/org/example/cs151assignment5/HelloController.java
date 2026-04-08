@@ -18,7 +18,7 @@ public class HelloController {
     @FXML
     private void onNewGameClick() {
         try {
-            HelloApplication.switchScene("game-page.fxml");
+            HelloApplication.switchScene("config-view.fxml");
         } catch (IOException e) {
             e.printStackTrace();
         }

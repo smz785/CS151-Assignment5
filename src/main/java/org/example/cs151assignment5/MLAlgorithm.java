@@ -9,7 +9,7 @@ import java.util.Random;
 
 public class MLAlgorithm implements ChoiceAlgorithm {
 
-    private static final int N = 6;
+    private static final int N = 4;
     private final StringProperty mlAlg = new SimpleStringProperty("ML");
     private final StringProperty predictedHumanChoice = new SimpleStringProperty("N/A");
 

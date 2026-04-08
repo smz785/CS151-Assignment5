@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="15" alignment="CENTER"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="org.example.cs151assignment5.ConfigViewController">
+
+    <Label text="Game Setup" styleClass="label-title"/>
+
+    <Label text="Select Algorithm"/>
+    <ChoiceBox fx:id="algorithmChoiceBox"/>
+
+    <Label text="Number of Rounds"/>
+    <TextField fx:id="roundsField" promptText="Enter number"/>
+
+    <Button text="Start Game" onAction="#onStartGameClick"/>
+    <Button text="Back" onAction="#onBackClick"/>
+
+</VBox>
