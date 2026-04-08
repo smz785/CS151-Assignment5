@@ -30,13 +30,13 @@ public class MLDataStore {
                     continue;
                 }
 
-                String[] parts = line.split(":", 2);
-                if (parts.length != 2) {
+                int lastColon = line.lastIndexOf(':');
+                if (lastColon < 0) {
                     continue;
                 }
 
-                String key = parts[0];
-                String[] nums = parts[1].split(",");
+                String key = line.substring(0, lastColon);
+                String[] nums = line.substring(lastColon + 1).split(",");
                 if (nums.length != 3) {
                     continue;
                 }

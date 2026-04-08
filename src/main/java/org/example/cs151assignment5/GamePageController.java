@@ -2,11 +2,14 @@ package org.example.cs151assignment5;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+
+import java.io.IOException;
 
 
 public class GamePageController {
@@ -37,6 +40,9 @@ public class GamePageController {
     private TableColumn<RoundStat, Number> humanWinsColumn;
 
     @FXML
+    private Button newGameButton;
+
+    @FXML
     private TableColumn<RoundStat, Number> computerWinsColumn;
 
     @FXML
@@ -62,12 +68,46 @@ public class GamePageController {
 
     @FXML
     private void initialize() {
+        roundColumn.setCellValueFactory(cellData -> cellData.getValue().roundProperty());
+        humanWinsColumn.setCellValueFactory(cellData -> cellData.getValue().humanWinsProperty());
+        computerWinsColumn.setCellValueFactory(cellData -> cellData.getValue().computerWinsProperty());
+        tiesColumn.setCellValueFactory(cellData -> cellData.getValue().tiesProperty());
+
+        roundsTable.setItems(roundStats);
+
+        resetGame();
+    }
+
+    @FXML
+    private void onBackClick(ActionEvent actionEvent) {
+        try {
+            HelloApplication.switchScene("hello-view.fxml");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void onNewGameClick(ActionEvent actionEvent) {
+        try {
+            HelloApplication.switchScene("config-view.fxml");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void resetGame() {
         String algCode = selectedAlgorithm.equals("ML") ? "2" : "1";
 
         humanWins = 0;
         computerWins = 0;
         ties = 0;
         roundStats.clear();
+
+        if (algorithm != null) {
+            algorithmLabel.textProperty().unbind();
+            predictedChoiceLabel.textProperty().unbind();
+        }
 
         algorithm = FactoryChoiceAlgorithm.create(algCode);
         computer = new ComputerPlayer(algorithm);
@@ -76,19 +116,13 @@ public class GamePageController {
         algorithmLabel.textProperty().bind(algorithm.getAlgorithmChoiceProperty());
         predictedChoiceLabel.textProperty().bind(algorithm.getPredictedHumanChoiceProperty());
 
-        roundColumn.setCellValueFactory(cellData -> cellData.getValue().roundProperty());
-        humanWinsColumn.setCellValueFactory(cellData -> cellData.getValue().humanWinsProperty());
-        computerWinsColumn.setCellValueFactory(cellData -> cellData.getValue().computerWinsProperty());
-        tiesColumn.setCellValueFactory(cellData -> cellData.getValue().tiesProperty());
-
-        roundsTable.setItems(roundStats);
-
         totalRoundsLabel.setText(String.valueOf(game.getTotalRounds()));
         roundLabel.setText("0");
         roundWinnerLabel.setText("-");
         gameWinnerLabel.setText("-");
         humanChoiceLabel.setText("-");
         computerChoiceLabel.setText("-");
+        newGameButton.setDisable(true);
     }
 
     @FXML
@@ -135,6 +169,7 @@ public class GamePageController {
 
         if (game.isGameOver()) {
             gameWinnerLabel.setText(formatResult(game.getFinalWinner()));
+            newGameButton.setDisable(false);
             game.saveGameData();
         }
     }

@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane style="-fx-background-color: #f5f5f5; -fx-border-color: #e0e0e0; -fx-border-width: 1;"
+<BorderPane styleClass="game-root"
             xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="org.example.cs151assignment5.GamePageController">
 
@@ -25,6 +25,8 @@
          <padding><Insets left="16" right="16"/></padding>
          <Label text="Computer Algorithm:" styleClass="label-algorithm-label"/>
          <Label fx:id="algorithmLabel" text="" styleClass="badge-algorithm"/>
+         <Region HBox.hgrow="ALWAYS"/>
+         <Button text="Back" onAction="#onBackClick" />
       </HBox>
    </top>
 
@@ -44,16 +46,16 @@
             <Label text="ROUND #" styleClass="label-section-header"/>
             <Label fx:id="roundLabel" text="—" styleClass="label-stat-value"/>
          </VBox>
-         <Separator orientation="VERTICAL" GridPane.columnIndex="1" style="-fx-padding: 12 0 12 0;"/>
-         <VBox alignment="CENTER_LEFT" spacing="3" GridPane.columnIndex="1" style="-fx-padding: 0 0 0 16;">
+         <Separator orientation="VERTICAL" GridPane.columnIndex="1" styleClass="vertical-separator"/>
+         <VBox alignment="CENTER_LEFT" spacing="3" GridPane.columnIndex="1" styleClass="grid-column-padding">
             <Label text="ROUND WINNER" styleClass="label-section-header"/>
             <Label fx:id="roundWinnerLabel" text="—" styleClass="label-stat-value"/>
          </VBox>
-         <VBox alignment="CENTER_LEFT" spacing="3" GridPane.columnIndex="2" style="-fx-padding: 0 0 0 16;">
+         <VBox alignment="CENTER_LEFT" spacing="3" GridPane.columnIndex="2" styleClass="grid-column-padding">
             <Label text="TOTAL ROUNDS" styleClass="label-section-header"/>
             <Label fx:id="totalRoundsLabel" text="—" styleClass="label-stat-value"/>
          </VBox>
-         <VBox alignment="CENTER_LEFT" spacing="3" GridPane.columnIndex="3" style="-fx-padding: 0 0 0 16;">
+         <VBox alignment="CENTER_LEFT" spacing="3" GridPane.columnIndex="3" styleClass="grid-column-padding">
             <Label text="GAME WINNER" styleClass="label-section-header"/>
             <Label fx:id="gameWinnerLabel" text="—" styleClass="label-stat-value"/>
          </VBox>
@@ -107,7 +109,7 @@
 
    <!-- CENTER: Game stats table -->
    <center>
-      <VBox spacing="8" style="-fx-background-color: #f5f5f5;">
+      <VBox spacing="8" styleClass="game-center">
          <padding><Insets top="12" right="12" bottom="12" left="12"/></padding>
 
          <Label text="Game Stats" styleClass="label-subsection-header"/>
@@ -120,6 +122,10 @@
                <TableColumn fx:id="tiesColumn" prefWidth="70.0" text="Ties"/>
             </columns>
          </TableView>
+         <HBox alignment="CENTER_RIGHT" spacing="10" styleClass="button-row">
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button fx:id="newGameButton" text="New Game" onAction="#onNewGameClick" disable="true"/>
+         </HBox>
       </VBox>
    </center>
 
